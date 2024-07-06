@@ -1,0 +1,38 @@
+[
+  {
+    "type": "text",
+    "text": "ACME Inc.",
+    "size": 20,
+    "color": "#444444"
+  },
+  {
+    "type": "text",
+    "text": "ACME Inc.",
+    "size": 10,
+    "color": "#444444",
+    "align": "right",
+    "x": 200
+  },
+  {
+    "type": "moveDown"
+  },
+  {
+    "type": "text",
+    "text": "123 Main Street",
+    "size": 10,
+    "color": "#444444",
+    "align": "right",
+    "x": 200
+  },
+  {
+    "type": "moveDown"
+  },
+  {
+    "type": "text",
+    "text": "New York, NY, 10025",
+    "size": 10,
+    "color": "#444444",
+    "align": "right",
+    "x": 200
+  }
+]
