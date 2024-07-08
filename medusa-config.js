@@ -38,6 +38,7 @@ const REDIS_URL = process.env.REDIS_URL || "redis://localhost:6379";
 const plugins = [
     `medusa-fulfillment-manual`,
     `medusa-payment-manual`,
+
     {
         resolve: `@medusajs/file-local`,
         options: {
@@ -62,6 +63,15 @@ const plugins = [
             api_secret: "lyG-qdvJiIOe4XAgKv95RPw1XRc",
             secure: true,
         },
+    },
+    {
+        resolve: `medusa-plugin-sendgrid`,
+        options: {
+            api_key: process.env.SENDGRID_API_KEY,
+            from: "cookiesnchill2022@gmail.com",
+            order_placed_template: "d-6adead7fa8ef4e989f8bf703bfed5b32",
+        }
+
     },
 ];
 
