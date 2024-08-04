@@ -35,6 +35,7 @@ const DATABASE_URL =
 
 const REDIS_URL = process.env.REDIS_URL || "redis://localhost:6379";
 
+
 const plugins = [
     `medusa-fulfillment-manual`,
     `medusa-payment-manual`,
@@ -65,13 +66,26 @@ const plugins = [
         },
     },
     {
-        resolve: `medusa-plugin-sendgrid`,
+        resolve: `medusa-plugin-sendgrid-typescript`,
+        /** @type {import('medusa-plugin-sendgrid-typescript').PluginOptions} */
         options: {
             api_key: process.env.SENDGRID_API_KEY,
-            from: "cookiesnchill2022@gmail.com",
-            order_placed_template: "d-6adead7fa8ef4e989f8bf703bfed5b32",
+            from: process.env.SENDGRID_FROM,
+            templates: {
+                order_placed_template: {
+                    id: process.env.SENDGRID_ORDER_PLACED_ID,                    // You can add dynamic data to the template by using {variable_name}
+                    subject: "Thank you for your order #{display_id}!",
+                },
+            },
+            localization: {
+                "de-DE": { // locale key
+                    order_placed_template: {
+                        subject: "Danke für Ihre Bestellung #{display_id}!",
+                        id: "d-6adead7fa8ef4e989f8bf703bfed5b32",
+                    }
+                },
+            },
         }
-
     },
 ];
 
